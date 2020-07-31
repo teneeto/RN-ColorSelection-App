@@ -31,7 +31,7 @@ export default function App() {
         data={COLORS}
         keyExtractor={(item) => item.colorName}
         renderItem={({ item }) => (
-          <ColorBox colorName={item.colorName} colorHex={item.hexCode} />
+          <ColorBox colorName={item.colorName} hexCode={item.hexCode} />
         )}
         ListHeaderComponent={<Text style={styles.heading}>Solarized</Text>}
       />
