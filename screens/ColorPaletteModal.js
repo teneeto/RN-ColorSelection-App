@@ -8,14 +8,20 @@ import {
   Alert,
 } from 'react-native';
 
-const ColorPaletteModal = () => {
+const ColorPaletteModal = ({ navigation }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = useCallback(() => {
     if (!name) {
       Alert.alert('Please enter a palette name');
+    } else {
+      const newColorPalette = {
+        paletteName: name,
+        colors: [],
+      };
+      navigation.navigate('Home', { newColorPalette });
     }
-  }, [name]);
+  }, [name, navigation]);
   return (
     <View style={styles.container}>
       <Text style={styles.name}>Name of the palette</Text>
